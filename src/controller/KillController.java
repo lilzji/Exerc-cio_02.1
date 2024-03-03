@@ -9,12 +9,12 @@ public class KillController {
 	public KillController() {
 		super();
 	}
-	private String sistemaOperacional() {
+	private String os() {
 		String os = System.getProperty("os.name");
 		return os;
 	}
 	public void listaProcessos() {
-		String os = sistemaOperacional();
+		String os = os();
 		if (os.contains("Windows")) {
 			String windows = "TASKLIST /FO TABLE";
 			try {
@@ -49,7 +49,7 @@ public class KillController {
 		}
 	}
 	public void mataPid(int pid) { 
-		String os = sistemaOperacional();
+		String os = os();
 		if(os.contains("Windows")) {
 			String pidWindows = "TASKKILL /PID";
 			StringBuffer bufferWindows = new StringBuffer();
@@ -73,7 +73,7 @@ public class KillController {
 		}
 	}
 	public void mataNome(String nome) {
-		String os = sistemaOperacional();
+		String os = os();
 		if(os.contains("Windows")) {
 			String pidWindows = "TASKKILL /IM";
 			StringBuffer bufferWindows = new StringBuffer();
